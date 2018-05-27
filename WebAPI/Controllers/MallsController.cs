@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
                 }
                 else
                 {
-                    return Request.CreateResponse(HttpStatusCode.NotFound, "Employee with Id=" + id.ToString() + "Not Found");
+                    return Request.CreateResponse(HttpStatusCode.NotFound, "Employee with Id=" + id.ToString() + " Not Found");
                 }
             }
         }
@@ -42,8 +42,28 @@ namespace WebAPI.Controllers
         }
 
         //DELETE api/values/{id}
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            try
+            {
+                using (ARMAEntities armaentities = new ARMAEntities())
+                {
+                    var entity = armaentities.Malls.Remove(armaentities.Malls.FirstOrDefault(e => e.id == id));
+                    armaentities.SaveChanges();
+                    if (entity != null)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, entity);
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.NotFound, "Employee with Id=" + id.ToString() + " Not Found");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Employee with Id=" + id.ToString() + " Not Found");
+            }
         }
 
         // POST api/values
