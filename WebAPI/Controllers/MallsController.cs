@@ -36,9 +36,26 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(int id, [FromBody]Mall mall)
         {
-
+            using (ARMAEntities armaentities = new ARMAEntities())
+            {
+                var entity = armaentities.Malls.FirstOrDefault(e => e.id == id);
+                if (entity == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound, "Employee with Id=" + id.ToString() + " Not Found");
+                }
+                else
+                {
+                    entity.Name = mall.Name;
+                    entity.Description = mall.Description;
+                    entity.Mobile = mall.Mobile;
+                    entity.Phone = mall.Phone;
+                    entity.Email = mall.Email;
+                    armaentities.SaveChanges();
+                    return Request.CreateResponse(HttpStatusCode.OK, entity);
+                }
+            }
         }
 
         //DELETE api/values/{id}
@@ -67,7 +84,7 @@ namespace WebAPI.Controllers
         }
 
         // POST api/values
-        public HttpResponseMessage Post([FromBody]Mall mall)
+        public HttpResponseMessage Post([FromBody]Mall mall)//[FromBody] means that all data from the body field must take the value to add
         {
             try
             {
