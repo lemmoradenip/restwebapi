@@ -12,18 +12,18 @@ namespace WebAPI.Controllers
         // GET api/mall
         public IEnumerable<Mall> Get()
         {
-            using (ARMAEntities armaentities = new ARMAEntities())
+            using (ARMADatabaseEntities ARMADatabaseEntities = new ARMADatabaseEntities())
             {
-                return armaentities.Malls.ToList();//this will return the list of item in db
+                return ARMADatabaseEntities.Malls.ToList();//this will return the list of item in db
             }
         }
 
         // GET api/mall/{id}        
         public HttpResponseMessage Get(int id)
         {
-            using (ARMAEntities armaentities = new ARMAEntities())
+            using (ARMADatabaseEntities ARMADatabaseEntities = new ARMADatabaseEntities())
             {
-                var entity = armaentities.Malls.FirstOrDefault(e => e.id == id);
+                var entity = ARMADatabaseEntities.Malls.FirstOrDefault(e => e.id == id);
                 if (entity != null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, entity);
@@ -38,9 +38,9 @@ namespace WebAPI.Controllers
         // PUT api/values/5
         public HttpResponseMessage Put(int id, [FromBody]Mall mall)
         {
-            using (ARMAEntities armaentities = new ARMAEntities())
+            using (ARMADatabaseEntities ARMADatabaseEntities = new ARMADatabaseEntities())
             {
-                var entity = armaentities.Malls.FirstOrDefault(e => e.id == id);
+                var entity = ARMADatabaseEntities.Malls.FirstOrDefault(e => e.id == id);
                 if (entity == null)
                 {
                     return Request.CreateResponse(HttpStatusCode.NotFound, "Employee with Id=" + id.ToString() + " Not Found");
@@ -52,7 +52,7 @@ namespace WebAPI.Controllers
                     entity.Mobile = mall.Mobile;
                     entity.Phone = mall.Phone;
                     entity.Email = mall.Email;
-                    armaentities.SaveChanges();
+                    ARMADatabaseEntities.SaveChanges();
                     return Request.CreateResponse(HttpStatusCode.OK, entity);
                 }
             }
@@ -63,10 +63,10 @@ namespace WebAPI.Controllers
         {
             try
             {
-                using (ARMAEntities armaentities = new ARMAEntities())
+                using (ARMADatabaseEntities ARMADatabaseEntities = new ARMADatabaseEntities())
                 {
-                    var entity = armaentities.Malls.Remove(armaentities.Malls.FirstOrDefault(e => e.id == id));
-                    armaentities.SaveChanges();
+                    var entity = ARMADatabaseEntities.Malls.Remove(ARMADatabaseEntities.Malls.FirstOrDefault(e => e.id == id));
+                    ARMADatabaseEntities.SaveChanges();
                     if (entity != null)
                     {
                         return Request.CreateResponse(HttpStatusCode.OK, entity);
@@ -88,10 +88,10 @@ namespace WebAPI.Controllers
         {
             try
             {
-                using (ARMAEntities armaentities = new ARMAEntities())
+                using (ARMADatabaseEntities ARMADatabaseEntities = new ARMADatabaseEntities())
                 {
-                    armaentities.Malls.Add(mall);
-                    armaentities.SaveChanges();
+                    ARMADatabaseEntities.Malls.Add(mall);
+                    ARMADatabaseEntities.SaveChanges();
 
                     var message = Request.CreateResponse(HttpStatusCode.Created, mall);
                     message.Headers.Location = new Uri(Request.RequestUri + mall.id.ToString());

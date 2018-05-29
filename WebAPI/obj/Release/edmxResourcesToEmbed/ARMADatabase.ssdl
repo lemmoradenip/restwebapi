@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ARMADatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="be_modules">
+    <Key>
+      <PropertyRef Name="module_id" />
+    </Key>
+    <Property Name="module_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="module_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="module_desc" Type="varchar(max)" Nullable="false" />
+    <Property Name="module_icon" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ordering" Type="int" Nullable="false" />
+    <Property Name="is_show_on_menu" Type="smallint" Nullable="false" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+    <Property Name="group_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="group_icon" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="group_has_child" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ARMADatabase.dbo.be_permissions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="be_permissions">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="module_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="module_id" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ARMADatabase.dbo.be_role_access' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="be_role_access">
+    <Key>
+      <PropertyRef Name="role_id" />
+      <PropertyRef Name="action_id" />
+    </Key>
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="action_id" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="be_roles">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="role_desc" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="be_users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="user_email" Type="varchar(max)" Nullable="false" />
+    <Property Name="user_pass" Type="varchar(max)" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="is_owner" Type="smallint" Nullable="false" />
+    <Property Name="is_shop_admin" Type="smallint" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="status" Type="smallint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ARMADatabase.dbo.ci_sessions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ci_sessions">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="ip_address" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="data" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="timestamp" Type="int" Nullable="false" />
+    <Property Name="data" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Malls">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="15" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="mk_about">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="225" Nullable="false" />
+    <Property Name="description" Type="varchar(max)" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="website" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_appusers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="varchar(max)" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="about_me" Type="varchar(max)" Nullable="false" />
+    <Property Name="delivery_address" Type="varchar(max)" Nullable="false" />
+    <Property Name="billing_address" Type="varchar(max)" Nullable="false" />
+    <Property Name="profile_photo" Type="varchar(max)" Nullable="false" />
+    <Property Name="background_photo" Type="varchar(max)" Nullable="false" />
+    <Property Name="is_banned" Type="smallint" Nullable="false" />
+    <Property Name="status" Type="smallint" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="updated" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="is_published" Type="int" Nullable="false" />
+    <Property Name="ordering" Type="int" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="updated" Type="datetime2" Precision="0" />
+    <Property Name="name_ar" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_codes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="code" Type="varchar(max)" Nullable="false" />
+    <Property Name="is_systemuser" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_contactus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="message" Type="varchar(max)" Nullable="false" />
+    <Property Name="status" Type="smallint" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="updated" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_discount_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar(max)" Nullable="false" />
+    <Property Name="percent" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_favourites">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_id" Type="int" Nullable="false" />
+    <Property Name="appuser_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_feeds">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="description" Type="varchar(max)" Nullable="false" />
+    <Property Name="is_published" Type="smallint" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="title_ar" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="description_ar" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_follows">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="appuser_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_gcm_tokens">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="device_id" Type="varchar(max)" />
+    <Property Name="os_type" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="reg_id" Type="varchar(max)" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_images">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="parent_id" Type="int" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="path" Type="varchar(max)" Nullable="false" />
+    <Property Name="width" Type="varchar(max)" Nullable="false" />
+    <Property Name="height" Type="varchar(max)" Nullable="false" />
+    <Property Name="description" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_inquiries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="message" Type="varchar(max)" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="updated" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_items">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cat_id" Type="int" Nullable="false" />
+    <Property Name="sub_cat_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="discount_type_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="description" Type="varchar(max)" Nullable="false" />
+    <Property Name="unit_price" Type="float" Nullable="false" />
+    <Property Name="search_tag" Type="varchar(max)" Nullable="false" />
+    <Property Name="is_published" Type="int" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="updated" Type="datetime2" Precision="0" />
+    <Property Name="mobile" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="telephone" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="website" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_items_attributes_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="header_id" Type="int" Nullable="false" />
+    <Property Name="item_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="additional_price" Type="float" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_items_attributes_header">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_likes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_id" Type="int" Nullable="false" />
+    <Property Name="appuser_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_ratings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="appuser_id" Type="int" Nullable="false" />
+    <Property Name="item_id" Type="int" Nullable="false" />
+    <Property Name="rating" Type="float" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_reviews">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_id" Type="int" Nullable="false" />
+    <Property Name="appuser_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="review" Type="varchar(max)" Nullable="false" />
+    <Property Name="status" Type="smallint" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_shop_followers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="appuser_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_shops">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="description" Type="varchar(max)" Nullable="false" />
+    <Property Name="phone" Type="varchar(max)" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="address" Type="varchar(max)" Nullable="false" />
+    <Property Name="coordinate" Type="varchar(max)" Nullable="false" />
+    <Property Name="lat" Type="float" Nullable="false" />
+    <Property Name="lng" Type="float" Nullable="false" />
+    <Property Name="paypal_email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="paypal_environment" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="paypal_appid_live" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="paypal_merchantname" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="paypal_customerid" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="paypal_ipnurl" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="paypal_memo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="bank_account" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="bank_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="bank_code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="branch_code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="swift_code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cod_email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="stripe_publishable_key" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="stripe_secret_key" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="currency_symbol" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="currency_short_form" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="sender_email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="status" Type="smallint" Nullable="false" />
+    <Property Name="paypal_enabled" Type="smallint" Nullable="false" />
+    <Property Name="stripe_enabled" Type="smallint" Nullable="false" />
+    <Property Name="cod_enabled" Type="smallint" Nullable="false" />
+    <Property Name="banktransfer_enabled" Type="smallint" Nullable="false" />
+    <Property Name="name_ar" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="description_ar" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_sub_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cat_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="is_published" Type="int" Nullable="false" />
+    <Property Name="ordering" Type="int" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="updated" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_touches">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_id" Type="int" Nullable="false" />
+    <Property Name="appuser_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_transaction_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transaction_header_id" Type="int" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="item_id" Type="int" Nullable="false" />
+    <Property Name="item_name" Type="varchar" MaxLength="255" />
+    <Property Name="item_attribute_id" Type="varchar" MaxLength="255" />
+    <Property Name="item_attribute" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="unit_price" Type="float" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+    <Property Name="discount_percent" Type="float" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="platform" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_transaction_header">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shop_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="payment_trans_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="total_amount" Type="float" Nullable="false" />
+    <Property Name="delivery_address" Type="varchar(max)" Nullable="false" />
+    <Property Name="billing_address" Type="varchar(max)" Nullable="false" />
+    <Property Name="transaction_status" Type="smallint" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="payment_method" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="added" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_transaction_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ARMADatabaseModelStoreContainer">
+    <EntitySet Name="be_modules" EntityType="Self.be_modules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="be_roles" EntityType="Self.be_roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="be_users" EntityType="Self.be_users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Malls" EntityType="Self.Malls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_about" EntityType="Self.mk_about" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_appusers" EntityType="Self.mk_appusers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_categories" EntityType="Self.mk_categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_codes" EntityType="Self.mk_codes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_contactus" EntityType="Self.mk_contactus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_discount_type" EntityType="Self.mk_discount_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_favourites" EntityType="Self.mk_favourites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_feeds" EntityType="Self.mk_feeds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_follows" EntityType="Self.mk_follows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_gcm_tokens" EntityType="Self.mk_gcm_tokens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_images" EntityType="Self.mk_images" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_inquiries" EntityType="Self.mk_inquiries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_items" EntityType="Self.mk_items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_items_attributes_detail" EntityType="Self.mk_items_attributes_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_items_attributes_header" EntityType="Self.mk_items_attributes_header" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_likes" EntityType="Self.mk_likes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_ratings" EntityType="Self.mk_ratings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_reviews" EntityType="Self.mk_reviews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_shop_followers" EntityType="Self.mk_shop_followers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_shops" EntityType="Self.mk_shops" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_sub_categories" EntityType="Self.mk_sub_categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_touches" EntityType="Self.mk_touches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_transaction_detail" EntityType="Self.mk_transaction_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_transaction_header" EntityType="Self.mk_transaction_header" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mk_transaction_status" EntityType="Self.mk_transaction_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="be_permissions" EntityType="Self.be_permissions" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[be_permissions].[user_id] AS [user_id], 
+[be_permissions].[module_id] AS [module_id]
+FROM [dbo].[be_permissions] AS [be_permissions]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="be_role_access" EntityType="Self.be_role_access" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[be_role_access].[role_id] AS [role_id], 
+[be_role_access].[action_id] AS [action_id]
+FROM [dbo].[be_role_access] AS [be_role_access]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ci_sessions" EntityType="Self.ci_sessions" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ci_sessions].[id] AS [id], 
+[ci_sessions].[ip_address] AS [ip_address], 
+[ci_sessions].[timestamp] AS [timestamp], 
+[ci_sessions].[data] AS [data]
+FROM [dbo].[ci_sessions] AS [ci_sessions]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

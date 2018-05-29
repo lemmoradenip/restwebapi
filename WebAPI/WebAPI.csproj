@@ -154,6 +154,39 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ARMA.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ARMADatabase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ARMADatabase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ARMADatabase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ARMADatabase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ARMADatabase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="be_modules.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="be_permissions.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="be_roles.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="be_role_access.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="be_users.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ci_sessions.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MallController.cs" />
     <Compile Include="Controllers\MallsController.cs" />
@@ -162,7 +195,82 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mall.cs">
-      <DependentUpon>ARMA.tt</DependentUpon>
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_about.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_appusers.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_categories.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_codes.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_contactus.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_discount_type.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_favourites.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_feeds.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_follows.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_gcm_tokens.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_images.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_inquiries.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_items.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_items_attributes_detail.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_items_attributes_header.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_likes.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_ratings.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_reviews.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_shops.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_shop_followers.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_sub_categories.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_touches.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_transaction_detail.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_transaction_header.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mk_transaction_status.cs">
+      <DependentUpon>ARMADatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -203,6 +311,24 @@
       <DependentUpon>ARMA.edmx</DependentUpon>
       <LastGenOutput>ARMA.cs</LastGenOutput>
     </Content>
+    <EntityDeploy Include="ARMADatabase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ARMADatabase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ARMADatabase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ARMADatabase.edmx</DependentUpon>
+      <LastGenOutput>ARMADatabase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ARMADatabase.edmx.diagram">
+      <DependentUpon>ARMADatabase.edmx</DependentUpon>
+    </Content>
+    <Content Include="ARMADatabase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ARMADatabase.edmx</DependentUpon>
+      <LastGenOutput>ARMADatabase.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\LocalIIS.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

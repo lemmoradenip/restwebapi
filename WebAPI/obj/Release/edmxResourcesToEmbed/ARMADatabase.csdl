@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ARMADatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="be_modules">
+    <Key>
+      <PropertyRef Name="module_id" />
+    </Key>
+    <Property Name="module_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="module_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="module_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="module_icon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ordering" Type="Int32" Nullable="false" />
+    <Property Name="is_show_on_menu" Type="Int16" Nullable="false" />
+    <Property Name="group_id" Type="Int32" Nullable="false" />
+    <Property Name="group_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="group_icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="group_has_child" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="be_roles">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="role_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="be_users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+    <Property Name="is_owner" Type="Int16" Nullable="false" />
+    <Property Name="is_shop_admin" Type="Int16" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mall">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="mk_about">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="225" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="website" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_appusers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="about_me" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="delivery_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="billing_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="profile_photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="background_photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="is_banned" Type="Int16" Nullable="false" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="updated" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="is_published" Type="Int32" Nullable="false" />
+    <Property Name="ordering" Type="Int32" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="updated" Type="DateTime" Precision="0" />
+    <Property Name="name_ar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_codes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="is_systemuser" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_contactus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="updated" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_discount_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="percent" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_favourites">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item_id" Type="Int32" Nullable="false" />
+    <Property Name="appuser_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_feeds">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="is_published" Type="Int16" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="title_ar" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_follows">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="appuser_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_gcm_tokens">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="device_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="os_type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="reg_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_images">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="parent_id" Type="Int32" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="width" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="height" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_inquiries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="updated" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_items">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_id" Type="Int32" Nullable="false" />
+    <Property Name="sub_cat_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="discount_type_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="unit_price" Type="Double" Nullable="false" />
+    <Property Name="search_tag" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="is_published" Type="Int32" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="updated" Type="DateTime" Precision="0" />
+    <Property Name="mobile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telephone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_items_attributes_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="header_id" Type="Int32" Nullable="false" />
+    <Property Name="item_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="additional_price" Type="Double" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_items_attributes_header">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_likes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item_id" Type="Int32" Nullable="false" />
+    <Property Name="appuser_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_ratings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="appuser_id" Type="Int32" Nullable="false" />
+    <Property Name="item_id" Type="Int32" Nullable="false" />
+    <Property Name="rating" Type="Double" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_reviews">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item_id" Type="Int32" Nullable="false" />
+    <Property Name="appuser_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="review" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_shop_followers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="appuser_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_shops">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="coordinate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lat" Type="Double" Nullable="false" />
+    <Property Name="lng" Type="Double" Nullable="false" />
+    <Property Name="paypal_email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="paypal_environment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="paypal_appid_live" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="paypal_merchantname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="paypal_customerid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="paypal_ipnurl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="paypal_memo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bank_account" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bank_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bank_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="branch_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="swift_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cod_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="stripe_publishable_key" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="stripe_secret_key" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="currency_symbol" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="currency_short_form" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sender_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+    <Property Name="paypal_enabled" Type="Int16" Nullable="false" />
+    <Property Name="stripe_enabled" Type="Int16" Nullable="false" />
+    <Property Name="cod_enabled" Type="Int16" Nullable="false" />
+    <Property Name="banktransfer_enabled" Type="Int16" Nullable="false" />
+    <Property Name="name_ar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_sub_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="is_published" Type="Int32" Nullable="false" />
+    <Property Name="ordering" Type="Int32" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="updated" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_touches">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item_id" Type="Int32" Nullable="false" />
+    <Property Name="appuser_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_transaction_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="transaction_header_id" Type="Int32" Nullable="false" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="item_id" Type="Int32" Nullable="false" />
+    <Property Name="item_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="item_attribute_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="item_attribute" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="unit_price" Type="Double" Nullable="false" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <Property Name="discount_percent" Type="Double" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="platform" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mk_transaction_header">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="shop_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="payment_trans_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="total_amount" Type="Double" Nullable="false" />
+    <Property Name="delivery_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="billing_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="transaction_status" Type="Int16" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="payment_method" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="added" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="mk_transaction_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="be_permissions">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="module_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="module_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="be_role_access">
+    <Key>
+      <PropertyRef Name="role_id" />
+      <PropertyRef Name="action_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+    <Property Name="action_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ci_sessions">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="ip_address" />
+      <PropertyRef Name="timestamp" />
+      <PropertyRef Name="data" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ARMADatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="be_modules" EntityType="Self.be_modules" />
+    <EntitySet Name="be_roles" EntityType="Self.be_roles" />
+    <EntitySet Name="be_users" EntityType="Self.be_users" />
+    <EntitySet Name="Malls" EntityType="Self.Mall" />
+    <EntitySet Name="mk_about" EntityType="Self.mk_about" />
+    <EntitySet Name="mk_appusers" EntityType="Self.mk_appusers" />
+    <EntitySet Name="mk_categories" EntityType="Self.mk_categories" />
+    <EntitySet Name="mk_codes" EntityType="Self.mk_codes" />
+    <EntitySet Name="mk_contactus" EntityType="Self.mk_contactus" />
+    <EntitySet Name="mk_discount_type" EntityType="Self.mk_discount_type" />
+    <EntitySet Name="mk_favourites" EntityType="Self.mk_favourites" />
+    <EntitySet Name="mk_feeds" EntityType="Self.mk_feeds" />
+    <EntitySet Name="mk_follows" EntityType="Self.mk_follows" />
+    <EntitySet Name="mk_gcm_tokens" EntityType="Self.mk_gcm_tokens" />
+    <EntitySet Name="mk_images" EntityType="Self.mk_images" />
+    <EntitySet Name="mk_inquiries" EntityType="Self.mk_inquiries" />
+    <EntitySet Name="mk_items" EntityType="Self.mk_items" />
+    <EntitySet Name="mk_items_attributes_detail" EntityType="Self.mk_items_attributes_detail" />
+    <EntitySet Name="mk_items_attributes_header" EntityType="Self.mk_items_attributes_header" />
+    <EntitySet Name="mk_likes" EntityType="Self.mk_likes" />
+    <EntitySet Name="mk_ratings" EntityType="Self.mk_ratings" />
+    <EntitySet Name="mk_reviews" EntityType="Self.mk_reviews" />
+    <EntitySet Name="mk_shop_followers" EntityType="Self.mk_shop_followers" />
+    <EntitySet Name="mk_shops" EntityType="Self.mk_shops" />
+    <EntitySet Name="mk_sub_categories" EntityType="Self.mk_sub_categories" />
+    <EntitySet Name="mk_touches" EntityType="Self.mk_touches" />
+    <EntitySet Name="mk_transaction_detail" EntityType="Self.mk_transaction_detail" />
+    <EntitySet Name="mk_transaction_header" EntityType="Self.mk_transaction_header" />
+    <EntitySet Name="mk_transaction_status" EntityType="Self.mk_transaction_status" />
+    <EntitySet Name="be_permissions" EntityType="Self.be_permissions" />
+    <EntitySet Name="be_role_access" EntityType="Self.be_role_access" />
+    <EntitySet Name="ci_sessions" EntityType="Self.ci_sessions" />
+  </EntityContainer>
+</Schema>

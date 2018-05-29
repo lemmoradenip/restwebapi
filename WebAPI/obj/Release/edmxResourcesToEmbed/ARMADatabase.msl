@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ARMADatabaseModelStoreContainer" CdmEntityContainer="ARMADatabaseEntities">
+    <EntitySetMapping Name="be_modules">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.be_modules">
+        <MappingFragment StoreEntitySet="be_modules">
+          <ScalarProperty Name="module_id" ColumnName="module_id" />
+          <ScalarProperty Name="module_name" ColumnName="module_name" />
+          <ScalarProperty Name="module_desc" ColumnName="module_desc" />
+          <ScalarProperty Name="module_icon" ColumnName="module_icon" />
+          <ScalarProperty Name="ordering" ColumnName="ordering" />
+          <ScalarProperty Name="is_show_on_menu" ColumnName="is_show_on_menu" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="group_name" ColumnName="group_name" />
+          <ScalarProperty Name="group_icon" ColumnName="group_icon" />
+          <ScalarProperty Name="group_has_child" ColumnName="group_has_child" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="be_roles">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.be_roles">
+        <MappingFragment StoreEntitySet="be_roles">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+          <ScalarProperty Name="role_desc" ColumnName="role_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="be_users">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.be_users">
+        <MappingFragment StoreEntitySet="be_users">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_pass" ColumnName="user_pass" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="is_owner" ColumnName="is_owner" />
+          <ScalarProperty Name="is_shop_admin" ColumnName="is_shop_admin" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Malls">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.Mall">
+        <MappingFragment StoreEntitySet="Malls">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_about">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_about">
+        <MappingFragment StoreEntitySet="mk_about">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="website" ColumnName="website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_appusers">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_appusers">
+        <MappingFragment StoreEntitySet="mk_appusers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="about_me" ColumnName="about_me" />
+          <ScalarProperty Name="delivery_address" ColumnName="delivery_address" />
+          <ScalarProperty Name="billing_address" ColumnName="billing_address" />
+          <ScalarProperty Name="profile_photo" ColumnName="profile_photo" />
+          <ScalarProperty Name="background_photo" ColumnName="background_photo" />
+          <ScalarProperty Name="is_banned" ColumnName="is_banned" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_categories">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_categories">
+        <MappingFragment StoreEntitySet="mk_categories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="is_published" ColumnName="is_published" />
+          <ScalarProperty Name="ordering" ColumnName="ordering" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="name_ar" ColumnName="name_ar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_codes">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_codes">
+        <MappingFragment StoreEntitySet="mk_codes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="is_systemuser" ColumnName="is_systemuser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_contactus">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_contactus">
+        <MappingFragment StoreEntitySet="mk_contactus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_discount_type">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_discount_type">
+        <MappingFragment StoreEntitySet="mk_discount_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="percent" ColumnName="percent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_favourites">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_favourites">
+        <MappingFragment StoreEntitySet="mk_favourites">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="appuser_id" ColumnName="appuser_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_feeds">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_feeds">
+        <MappingFragment StoreEntitySet="mk_feeds">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="is_published" ColumnName="is_published" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="title_ar" ColumnName="title_ar" />
+          <ScalarProperty Name="description_ar" ColumnName="description_ar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_follows">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_follows">
+        <MappingFragment StoreEntitySet="mk_follows">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="appuser_id" ColumnName="appuser_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_gcm_tokens">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_gcm_tokens">
+        <MappingFragment StoreEntitySet="mk_gcm_tokens">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="device_id" ColumnName="device_id" />
+          <ScalarProperty Name="os_type" ColumnName="os_type" />
+          <ScalarProperty Name="reg_id" ColumnName="reg_id" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_images">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_images">
+        <MappingFragment StoreEntitySet="mk_images">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_inquiries">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_inquiries">
+        <MappingFragment StoreEntitySet="mk_inquiries">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_items">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_items">
+        <MappingFragment StoreEntitySet="mk_items">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="sub_cat_id" ColumnName="sub_cat_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="discount_type_id" ColumnName="discount_type_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+          <ScalarProperty Name="search_tag" ColumnName="search_tag" />
+          <ScalarProperty Name="is_published" ColumnName="is_published" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_items_attributes_detail">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_items_attributes_detail">
+        <MappingFragment StoreEntitySet="mk_items_attributes_detail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="header_id" ColumnName="header_id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="additional_price" ColumnName="additional_price" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_items_attributes_header">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_items_attributes_header">
+        <MappingFragment StoreEntitySet="mk_items_attributes_header">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_likes">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_likes">
+        <MappingFragment StoreEntitySet="mk_likes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="appuser_id" ColumnName="appuser_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_ratings">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_ratings">
+        <MappingFragment StoreEntitySet="mk_ratings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="appuser_id" ColumnName="appuser_id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_reviews">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_reviews">
+        <MappingFragment StoreEntitySet="mk_reviews">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="appuser_id" ColumnName="appuser_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="review" ColumnName="review" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_shop_followers">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_shop_followers">
+        <MappingFragment StoreEntitySet="mk_shop_followers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="appuser_id" ColumnName="appuser_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_shops">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_shops">
+        <MappingFragment StoreEntitySet="mk_shops">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="coordinate" ColumnName="coordinate" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lng" ColumnName="lng" />
+          <ScalarProperty Name="paypal_email" ColumnName="paypal_email" />
+          <ScalarProperty Name="paypal_environment" ColumnName="paypal_environment" />
+          <ScalarProperty Name="paypal_appid_live" ColumnName="paypal_appid_live" />
+          <ScalarProperty Name="paypal_merchantname" ColumnName="paypal_merchantname" />
+          <ScalarProperty Name="paypal_customerid" ColumnName="paypal_customerid" />
+          <ScalarProperty Name="paypal_ipnurl" ColumnName="paypal_ipnurl" />
+          <ScalarProperty Name="paypal_memo" ColumnName="paypal_memo" />
+          <ScalarProperty Name="bank_account" ColumnName="bank_account" />
+          <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+          <ScalarProperty Name="bank_code" ColumnName="bank_code" />
+          <ScalarProperty Name="branch_code" ColumnName="branch_code" />
+          <ScalarProperty Name="swift_code" ColumnName="swift_code" />
+          <ScalarProperty Name="cod_email" ColumnName="cod_email" />
+          <ScalarProperty Name="stripe_publishable_key" ColumnName="stripe_publishable_key" />
+          <ScalarProperty Name="stripe_secret_key" ColumnName="stripe_secret_key" />
+          <ScalarProperty Name="currency_symbol" ColumnName="currency_symbol" />
+          <ScalarProperty Name="currency_short_form" ColumnName="currency_short_form" />
+          <ScalarProperty Name="sender_email" ColumnName="sender_email" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="paypal_enabled" ColumnName="paypal_enabled" />
+          <ScalarProperty Name="stripe_enabled" ColumnName="stripe_enabled" />
+          <ScalarProperty Name="cod_enabled" ColumnName="cod_enabled" />
+          <ScalarProperty Name="banktransfer_enabled" ColumnName="banktransfer_enabled" />
+          <ScalarProperty Name="name_ar" ColumnName="name_ar" />
+          <ScalarProperty Name="description_ar" ColumnName="description_ar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_sub_categories">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_sub_categories">
+        <MappingFragment StoreEntitySet="mk_sub_categories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="is_published" ColumnName="is_published" />
+          <ScalarProperty Name="ordering" ColumnName="ordering" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_touches">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_touches">
+        <MappingFragment StoreEntitySet="mk_touches">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="appuser_id" ColumnName="appuser_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_transaction_detail">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_transaction_detail">
+        <MappingFragment StoreEntitySet="mk_transaction_detail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="transaction_header_id" ColumnName="transaction_header_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="item_name" ColumnName="item_name" />
+          <ScalarProperty Name="item_attribute_id" ColumnName="item_attribute_id" />
+          <ScalarProperty Name="item_attribute" ColumnName="item_attribute" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="discount_percent" ColumnName="discount_percent" />
+          <ScalarProperty Name="added" ColumnName="added" />
+          <ScalarProperty Name="platform" ColumnName="platform" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_transaction_header">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_transaction_header">
+        <MappingFragment StoreEntitySet="mk_transaction_header">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="payment_trans_id" ColumnName="payment_trans_id" />
+          <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+          <ScalarProperty Name="delivery_address" ColumnName="delivery_address" />
+          <ScalarProperty Name="billing_address" ColumnName="billing_address" />
+          <ScalarProperty Name="transaction_status" ColumnName="transaction_status" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="payment_method" ColumnName="payment_method" />
+          <ScalarProperty Name="added" ColumnName="added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mk_transaction_status">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.mk_transaction_status">
+        <MappingFragment StoreEntitySet="mk_transaction_status">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="be_permissions">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.be_permissions">
+        <MappingFragment StoreEntitySet="be_permissions">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="module_id" ColumnName="module_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="be_role_access">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.be_role_access">
+        <MappingFragment StoreEntitySet="be_role_access">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="action_id" ColumnName="action_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ci_sessions">
+      <EntityTypeMapping TypeName="ARMADatabaseModel.ci_sessions">
+        <MappingFragment StoreEntitySet="ci_sessions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ip_address" ColumnName="ip_address" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
